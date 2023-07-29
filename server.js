@@ -1,12 +1,13 @@
 const http = require('http');
 const url = require('url');
+const path = require('path')
 const admin = require('firebase-admin');
-const app = admin.initializeApp();
+//const app = admin.initializeApp();
 
-const serviceAccount = require('C:\Users\lego8\workspaces\nodejs\prost_server\prost-db-firebase-adminsdk-idw1b-2df1f67470'); // Firebase 콘솔에서 다운로드한 서비스 계정 키 JSON 파일 경로
+const serviceAccount = require(path.join(__dirname, './prost-db-firebase-adminsdk-idw1b-2b52d7340c.json')); // Firebase 콘솔에서 다운로드한 서비스 계정 키 JSON 파일 경로
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'YOUR_DATABASE_URL', // Firebase 콘솔에서 가져온 데이터베이스 URL
+  databaseURL: 'https://prost-db-default-rtdb.firebaseio.com/', // Firebase 콘솔에서 가져온 데이터베이스 URL
 });
 
 const port = 8080;
